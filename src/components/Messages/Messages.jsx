@@ -27,7 +27,7 @@ const Messages = (props) => {
             
                {/*  text */}
             <div className="message-content">
-                <div className="data">{data}</div>
+                <p className="text">{data}</p>
                 <span className="timestamp">{setTimestamp(timestamp)}</span>
 
             </div>

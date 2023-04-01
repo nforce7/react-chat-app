@@ -8,7 +8,7 @@ function Login (props){
 
     function handleChange(event){
         setName(event.target.value);
-        console.log(event.target.value);
+        console.log(event.target.value); 
     }  
     
     
