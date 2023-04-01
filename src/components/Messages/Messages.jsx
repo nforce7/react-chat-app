@@ -9,13 +9,13 @@ const Messages = (props) => {
             "messages-message currentMember" : "messages-message";
 
         function setTimestamp(timestamp) {
-            const time = new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const time = new Date(timestamp*1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             return time;
         }
     
 
     return (
-        <li className='{className}' key={id}>
+        <li className={className} key={id}>
 
             {/* username and avatar */}
             <div className="info-content">
@@ -39,8 +39,21 @@ const Messages = (props) => {
     return (
         <div className="messages-field">
             <ul className="messages-list">
+
                 {props.messages.map((item) => renderMessage(item))}
             </ul>
+            {
+                props.messages.length === 0 && (
+                    <div className="no-messages">
+                        <p>There are no messages yet</p>
+                    </div>
+                )
+            }
+          
+
+           {/*  <ul className="messages-list">
+                {props.messages.map((item) => renderMessage(item))}
+            </ul> */}
         </div>
     )
 

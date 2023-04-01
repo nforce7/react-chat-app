@@ -4,32 +4,35 @@ import styles from "./Input.module.css";
 
 
 function Input(props) {
-  const [name, setName] = useState("");
+  const [inputText, setInputText] = useState("");
 
   function handleChange(event) {
-    setName(event.target.value);
-    console.log(event.target.value);
+    setInputText(event.target.value);
+    /* console.log(event.target.value); */
   }
 
-  function handleSubmit(event) {
+  function handleSubmitMessage(event) {
     event.preventDefault();
-    if (name !== "") {
-      props.onLogin(name);
+    if (inputText !== "") {
+     props.onSendMessage(inputText)
     }
-    setName("");
-  }
+    setInputText("");
+  };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmitMessage}>
         <label>Please enter your name:</label>
         <input
           type="text"
-          value={name}
+          id="inputText"
+          value={inputText}
           onChange={handleChange}
+          placeholder="Enter your message"
           required
+          className="InputText"
         />
-        <button type="submit">Login</button>
+        <button className="InputButton" type="submit">Send</button>
       </form>
     </div>
   );

@@ -8,14 +8,15 @@ function Login (props){
 
     function handleChange(event){
         setName(event.target.value);
-        console.log(event.target.value); 
+        console.log(event.target.value +"da li je to to?"); 
     }  
     
     
     function handleSubmit(event){
         event.preventDefault();
-        if (name !== ""){
-            props.onLogin(name);
+        
+        if (name !== "") {
+            props.enterChat(name);
         }
         setName("");
     };
@@ -25,12 +26,12 @@ function Login (props){
             <h1>
                 Chat for Photography enthusiasts
             </h1>
-            <form onSubmit={handleSubmit}>
-                <label>
+            <form action="" onSubmit={handleSubmit} className="card">
+                <label className="label-name" htmlFor="name">
                     Please enter your name:
                 </label>
-                <input type="text" value={name} onChange={handleChange} required/>
-                <button type="submit">
+                <input className="input-name" type="text" value={name} onChange={handleChange} id="name" required/>
+                <button className="LoginButton" type="submit">
                     Login
                 </button>
             </form>

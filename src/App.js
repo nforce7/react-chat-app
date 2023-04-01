@@ -10,7 +10,7 @@ function randomColor() {
 }
 
 
-function App() {
+function App() { 
 
   const[chatState, setChatState] = useState({
     messages: [],
@@ -20,7 +20,9 @@ function App() {
     },
     });
 
-    const enterChat = (username) => {
+    const enterChat = (username) => { 
+      
+      //provjera koda
       setChatState({
         ...chatState,
         member: {
@@ -30,11 +32,11 @@ function App() {
       });
     };
 
-    //write code for the app to connect to Scaledrone and subscribe to the room here                      
+    //code for the app to connect to Scaledrone and subscribe to the room here                      
     const [drone, setDrone] = useState(null);
     useEffect(() => {
       if (chatState.member.username !== "") {
-        const drone = new window.Scaledrone("TTAB80ZRqzFy41Il", {
+        const drone = new window.Scaledrone("WZIfcLaQjoRWkTQH", {
           data: chatState.member,
         });
         setDrone(drone);
@@ -45,32 +47,27 @@ function App() {
       //connection has been established
       drone.on("open", (error) => {
         if (error) {
-          return console.error(error);
+          return console.log(error);
         }
         chatState.member.id = drone.clientId;
-        setChatState({  ...chatState, member: chatState.member });
-
+        setChatState({  ...chatState, member: chatState.member });   //provjera koda
+  
         const room = drone.subscribe("observable-chatroom");
+
         room.on("message", (message) => {
           const { member, data, id, timestamp } = message;
           chatState.messages.push({ member, data, id, timestamp });
-          setChatState({ ...chatState, messages: chatState.messages });
+          setChatState({ ...chatState}, chatState.messages );
         });
       });
     }
 
-  const sendMessage = (message) => {
+  const onSendMessage = (message) => {
     drone.publish({
       room: "observable-chatroom",
       message,
     });
   };
-
- 
-
-
-
-
 
 
   return chatState.member.username === "" ? (
@@ -81,7 +78,7 @@ function App() {
       <Messages 
           messages={chatState.messages}
           currentMember = {chatState.member } />
-      <Input sendMessage={sendMessage} />
+      <Input onSendMessage={onSendMessage} />
     </div>
   );
 }
