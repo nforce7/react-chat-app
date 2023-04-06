@@ -1,16 +1,23 @@
 import React from "react";
-import { useState } from "react";
+/* import { useState } from "react"; */
 import styles from './Header.module.css';
+import CameraLogo from "../../images/CameraLogo.png"
 
-function Header(props) {
+
+function Header() {
+
+
   return (
-    <header className={styles.header}>
-      <h1>Chat for Photography enthusiasts</h1>
-      <p>Welcome {props.name}</p>
-    </header>
+    <div className={styles.header}>
+      <h1 className={styles.HeaderH1}>Photo Chat</h1>
+      <p className={styles.ChatDescription}>Everything photography related</p> 
+      <img src={CameraLogo} alt="camera-logo" className={styles.CameraLogo} />             
+    </div>
   );
-}
+} 
 
-export default Header;
+export default Header; 
+
+
 
 

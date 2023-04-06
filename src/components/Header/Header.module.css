@@ -1,0 +1,29 @@
+
+
+.header {
+    display: flex;
+    height: auto;
+    align-items: center;
+    background-color: #b7ffffd2;
+    text-align: center;
+    color: rgb(42, 194, 181);
+    padding: 0px 10px;
+}
+
+.CameraLogo {
+    width: 60px;
+}
+
+.HeaderH1 {
+    margin-left: 10px;
+    margin-right: auto;
+    font-size: 24px;
+    text-align: left;
+    
+}
+
+.ChatDescription {
+    font-size: 14px;
+    margin-right: 15px;
+    padding: 0px 10px;
+}   
