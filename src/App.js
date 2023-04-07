@@ -6,10 +6,23 @@ import Login from './components/Login/Login';
 import Messages from './components/Messages/Messages';
 
 
-function randomColor() {
+/* function randomColor() {
   const colorValue = Math.floor(Math.random() * 16777215).toString(16);
   return `#${colorValue}`;
+} */
+
+function randomColor() {
+  var letters = '0123456789ABCDEF';
+  var colorValue = '#';
+  for (var i = 0; i < 6; i++) {
+    colorValue += letters[Math.floor(Math.random() * 16)];
+  }
+  return colorValue;
 }
+
+ 
+ 
+
 
 
 function randomNick() {
@@ -37,13 +50,13 @@ function App() {
       nickname: "",
     },
     });
-    /* const[errorMsg, setErrorMsg] = useState(""); */
+   
 
     const enterChat = (username, color, nickname) => {   
 
       
     if (username.trim() === "") {
-      /* setErrorMsg("Username cannot be empty"); */
+     
       alert("Username cannot be empty");
       return;
   }
@@ -55,14 +68,7 @@ function App() {
       };
       setChatState({ ...chatState }, chatState.member);  
     };
-      //provjera 
-      //setChatState({
-        //...chatState,
-        //member: {
-         // username,
-          // avatar: randomColor() ,
-    
-    
+   
                   
     const [drone, setDrone] = useState(null);
 
@@ -102,11 +108,8 @@ function App() {
   };
 
 
-  return chatState.member.username === ""  ? ( 
-    <Login enterChat={enterChat} />
-    
-    
-  ) : ( 
+  return chatState.member.username === ""  ? ( <Login enterChat={enterChat} /> ) : 
+  ( 
     <div className="App-chat-page">
       <Header />
       <Messages 
@@ -119,3 +122,12 @@ function App() {
 }
 
 export default App; 
+
+
+
+
+
+
+
+
+

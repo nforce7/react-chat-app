@@ -33,7 +33,8 @@ function Input(props) {
           placeholder="Enter your message"
           required
           className={styles.InputText}
-          autoFocus = "true"
+          autoFocus = {true}
+          autoComplete="off"
         />
         <button className={styles.InputButton} type="submit">Send</button>
       </form>

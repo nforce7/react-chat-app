@@ -14,7 +14,7 @@ const Messages = (props) => {
 
         function setTimestamp(timestamp) {
             const time = new Date(timestamp*1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            return time; 
+            return time;  
         }
     
 
