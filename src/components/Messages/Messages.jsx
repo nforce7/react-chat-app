@@ -25,7 +25,7 @@ const Messages = (props) => {
             <div className={styles.UsernameAndUserColor}>
             <span className={styles.UserName}> {member.clientData.username} ({member.clientData.nickname})   </span>
             <span className={styles.UserColor} style={{backgroundColor:member.clientData.color}}/>
-            </div>
+            </div> 
 
                 
             
