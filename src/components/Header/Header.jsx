@@ -1,11 +1,8 @@
 import React from "react";
-/* import { useState } from "react"; */
 import styles from './Header.module.css';
 import CameraLogo from "../../images/CameraLogo.png"
 
-
 function Header() {
-
 
   return (
     <div className={styles.header}>

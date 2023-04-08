@@ -3,13 +3,7 @@ import React, {useState, useEffect} from 'react';
 import Header from './components/Header/Header';
 import Input from './components/Input/Input';
 import Login from './components/Login/Login';
-import Messages from './components/Messages/Messages';
-
-
-/* function randomColor() {
-  const colorValue = Math.floor(Math.random() * 16777215).toString(16);
-  return `#${colorValue}`;
-} */
+import Messages from './components/Messages/Messages'; 
 
 function randomColor() {
   var letters = '0123456789ABCDEF';
@@ -19,11 +13,6 @@ function randomColor() {
   }
   return colorValue;
 }
-
- 
- 
-
-
 
 function randomNick() {
   const adjectives = [
@@ -37,11 +26,7 @@ function randomNick() {
   return noun + " " + adjective;
 }
 
-
-
-
 function App() { 
-
   const[chatState, setChatState] = useState({
     messages: [],
     member: {
@@ -51,13 +36,10 @@ function App() {
     },
     });
    
-
     const enterChat = (username, color, nickname) => {   
 
-      
     if (username.trim() === "") {
-     
-      alert("Username cannot be empty");
+      /* alert("Username cannot be empty"); */
       return;
   }
 
@@ -68,8 +50,7 @@ function App() {
       };
       setChatState({ ...chatState }, chatState.member);  
     };
-   
-                  
+            
     const [drone, setDrone] = useState(null);
 
     useEffect(() => {   
@@ -82,7 +63,6 @@ function App() {
     }, [chatState.member]);
 
     if (drone) {
-      
       drone.on("open", (error) => {  
         if (error) {    
           return console.error(error);
@@ -107,16 +87,14 @@ function App() {
     });
   };
 
-
   return chatState.member.username === ""  ? ( <Login enterChat={enterChat} /> ) : 
   ( 
-    <div className="App-chat-page">
+    <div className="App-chat-page"> 
       <Header />
       <Messages 
           messages={chatState.messages}
           currentMember = {chatState.member } />
       <Input onSendMessage={onSendMessage} />
-      
     </div>
   );
 }

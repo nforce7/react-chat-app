@@ -2,32 +2,27 @@ import React from "react";
 import { useState, useRef } from "react"; 
 import styles from "./Input.module.css"; 
 
-
 function Input(props) {
   const [inputText, setInputText] = useState("");
   const inputRef = useRef(null); // create a ref to store the textInput DOM element
 
   function handleChange(event) {  
-    setInputText(event.target.value); 
-    
+    setInputText(event.target.value);     
   }
 
   function handleSubmitMessage(event) { 
     event.preventDefault();
 
-    
     if (inputText !== "") {
      props.onSendMessage(inputText)
     }
     setInputText(""); 
-    inputRef.current.focus(); // set focus to the input field
-   
+    inputRef.current.focus(); // set focus to the input field   
   };
 
   return ( 
     <div className={styles.InputField}>
       <form className={styles.InputForm}onSubmit={handleSubmitMessage}>
-        
         <input 
           type="text"
           id="inputText"
@@ -35,14 +30,13 @@ function Input(props) {
           onChange={handleChange}
           placeholder="Enter your message"
           required
-          className={styles.InputText}
+          className={styles.InputText} 
           autoFocus = {true}
           autoComplete="off"
           ref={inputRef} // assign the ref to the input field
         />
         <button className={styles.InputButton} type="submit">Send</button>
       </form>
-      
     </div>
   );
 }
