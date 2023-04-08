@@ -34,7 +34,7 @@ function Login (props){
                 <button className={styles.LoginButton} type="submit">
                     Login
                 </button>
-            </form>
+            </form> 
                 
         </div>  
     );
@@ -95,6 +95,7 @@ function Login(props) {
           onChange={handleChange}
           id="name"
           autoComplete="off"
+          autoFocus={true}
         />
         {showError ? (
           <p className={styles.ErrorMessage}>Username cannot be empty</p>

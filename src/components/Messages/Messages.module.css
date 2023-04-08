@@ -9,6 +9,7 @@
     padding: 0 10px;
     box-sizing: border-box;
     background-color: rgb(240, 255, 255);
+    font-family:'Poppins', sans-serif;
  }
 
  .MessagesList {
@@ -38,7 +39,7 @@
  }
 
  .UserName {
-    font-size: 15px;
+    font-size: 14px;
     color:gray;
     padding:0 10px;
     
@@ -73,7 +74,7 @@
       display: inline-block;
       padding: 0px 0px;
       color: rgb(18, 48, 82);
-      font-size: 18px;
+      font-size: 16px;
       margin-bottom: 30px;
       max-width: 30vw;  
       overflow-wrap: break-word;

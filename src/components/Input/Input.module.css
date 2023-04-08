@@ -12,6 +12,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    
 }
 
    .InputText {
@@ -28,6 +29,7 @@
     border-radius: 4px;
     color: rgb(22, 145, 134);
     /* margin : 16px; */
+    font-family:'Poppins', sans-serif;
     
 } 
 
@@ -44,6 +46,7 @@
     color: white;
     cursor: pointer;
     margin: 10px 20px;
+    font-family:'Poppins', sans-serif;
 }
 
 .InputButton:hover {

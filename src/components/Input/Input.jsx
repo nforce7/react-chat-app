@@ -1,10 +1,11 @@
 import React from "react";
-import { useState } from "react"; 
+import { useState, useRef } from "react"; 
 import styles from "./Input.module.css"; 
 
 
 function Input(props) {
   const [inputText, setInputText] = useState("");
+  const inputRef = useRef(null); // create a ref to store the textInput DOM element
 
   function handleChange(event) {  
     setInputText(event.target.value); 
@@ -19,9 +20,11 @@ function Input(props) {
      props.onSendMessage(inputText)
     }
     setInputText(""); 
+    inputRef.current.focus(); // set focus to the input field
+   
   };
 
-  return (
+  return ( 
     <div className={styles.InputField}>
       <form className={styles.InputForm}onSubmit={handleSubmitMessage}>
         
@@ -35,6 +38,7 @@ function Input(props) {
           className={styles.InputText}
           autoFocus = {true}
           autoComplete="off"
+          ref={inputRef} // assign the ref to the input field
         />
         <button className={styles.InputButton} type="submit">Send</button>
       </form>
